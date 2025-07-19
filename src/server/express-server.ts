@@ -2,6 +2,7 @@ import express from "express";
 import type { Application, Request, Response } from "express";
 import cors from "cors";
 import routes from "@/routes";
+import cookieParser from "cookie-parser"; // Import ini
 
 export class ExpressServer {
 	private app: Application;
@@ -14,7 +15,16 @@ export class ExpressServer {
 
 	private setupMiddleware() {
 		this.app.use(cors());
+		// this.app.use(
+		// 	cors({
+		// 		origin: "http://localhost:3000", // Ganti dengan URL frontend Next.js Anda
+		// 		credentials: true, // Izinkan pengiriman cookie (termasuk refreshToken)
+		// 		methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // Metode HTTP yang diizinkan
+		// 		allowedHeaders: ["Content-Type", "Authorization"], // Header yang diizinkan
+		// 	}),
+		// );
 		this.app.use(express.json());
+		this.app.use(cookieParser());
 	}
 
 	private setupRoutes() {

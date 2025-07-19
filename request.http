@@ -1,0 +1,30 @@
+### Register User
+POST http://localhost:3030/auth/register
+Content-Type: application/json
+
+{
+  "name": "john",
+  "email": "john@example.com",
+  "password": "password123"
+}
+
+### Login User
+POST http://localhost:3030/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "azkal@example.com",
+  "password": "password123"
+}
+
+
+### Get User Profile (using Bearer JWT Token)
+# Ganti <YOUR_ACCESS_TOKEN> dengan accessToken yang Anda dapatkan dari respons Login.
+GET http://localhost:3030/api/auth/profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjNmUzNmUyZS03ODIzLTRmOTQtOTZmNi0wZTU4MjU5M2ZhZWQiLCJpYXQiOjE3NTI5MTIxODIsImV4cCI6MTc1MjkxMjI0Mn0.4aqMEwF-Od82gaKxO5Du4tgC1G0ehBcOUqiQzJ2jX_A
+
+
+### Get User Profile (using X-API-Key)
+# Ganti <YOUR_API_KEY> dengan apiKey yang Anda dapatkan dari respons Register atau Login.
+GET http://localhost:3030/api/auth/profile
+X-API-Key: 01K09HYG79R661JVJZVX05Q27Z

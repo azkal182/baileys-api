@@ -18,6 +18,11 @@ interface CustomProcessEnv {
 	SSE_MAX_QR_GENERATION?: number;
 	SESSION_CONFIG_ID?: string;
 	API_KEY?: string;
+	// Tambahkan JWT_SECRET di sini
+	JWT_SECRET?: string;
+	JWT_REFRESH_SECRET?: string;
+	REFRESH_TOKEN_EXPIRATION?: string; // Tambahkan ini
+	ACCESS_TOKEN_EXPIRATION?: string; // Tambahkan ini
 }
 
 const envSchema = z
@@ -35,6 +40,11 @@ const envSchema = z
 		SSE_MAX_QR_GENERATION: z.number().default(5),
 		SESSION_CONFIG_ID: z.string().optional().default("session-config"),
 		API_KEY: z.string(),
+		// Tambahkan JWT_SECRET di sini, kita buat wajib (non-optional)
+		JWT_SECRET: z.string(),
+		JWT_REFRESH_SECRET: z.string(), // Tambahkan ini
+		REFRESH_TOKEN_EXPIRATION: z.string(), // Tambahkan ini
+		ACCESS_TOKEN_EXPIRATION: z.string(), // Tambahkan ini
 	})
 	.superRefine((data, ctx) => {
 		if (data.ENABLE_WEBHOOK && !data.URL_WEBHOOK) {
@@ -66,6 +76,11 @@ const processEnv: Partial<CustomProcessEnv> = {
 		: undefined,
 	SESSION_CONFIG_ID: process.env.SESSION_CONFIG_ID,
 	API_KEY: process.env.API_KEY,
+	// Tambahkan JWT_SECRET di sini
+	JWT_SECRET: process.env.JWT_SECRET,
+	JWT_REFRESH_SECRET: process.env.JWT_REFRESH_SECRET,
+	REFRESH_TOKEN_EXPIRATION: process.env.REFRESH_TOKEN_EXPIRATION,
+	ACCESS_TOKEN_EXPIRATION: process.env.ACCESS_TOKEN_EXPIRATION,
 };
 
 type EnvInput = z.input<typeof envSchema>;

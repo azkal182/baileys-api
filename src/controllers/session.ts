@@ -2,6 +2,9 @@ import WhatsappService from "@/whatsapp/service";
 import type { RequestHandler } from "express";
 
 export const list: RequestHandler = (req, res) => {
+	const data = WhatsappService.listSessions();
+	console.log(data);
+
 	res.status(200).json(WhatsappService.listSessions());
 };
 

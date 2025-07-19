@@ -3,7 +3,7 @@ import { logger } from "@/utils";
 import { makePhotoURLHandler } from "./misc";
 import { prisma } from "@/config/database";
 import WhatsappService from "@/whatsapp/service";
-import { Prisma } from "@prisma/client";
+import type { Prisma } from "@prisma/client";
 
 export const list: RequestHandler = async (req, res) => {
 	try {

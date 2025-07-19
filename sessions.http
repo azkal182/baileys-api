@@ -1,0 +1,15 @@
+### Get User Profile (using X-API-Key)
+# Ganti <YOUR_API_KEY> dengan apiKey yang Anda dapatkan dari respons Register atau Login.
+GET http://localhost:3030/sessions
+X-API-Key: 01K09HYG79R661JVJZVX05Q27Z
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjNmUzNmUyZS03ODIzLTRmOTQtOTZmNi0wZTU4MjU5M2ZhZWQiLCJpYXQiOjE3NTI4MzUxMjgsImV4cCI6MTc1MjgzODcyOH0.QeSJ8ppj2qFttUWqkgE-30wdEwb-yNfrf6n4sNg3z0s
+
+
+###create sessions
+POST http://localhost:3030/api/sessions/add HTTP/1.1
+Content-Type: application/json
+X-API-Key: 01K09HYG79R661JVJZVX05Q27Z
+
+{
+    "sessionId": "john-xx"
+}

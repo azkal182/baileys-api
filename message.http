@@ -1,0 +1,16 @@
+###message list
+GET http://localhost:3030/john/messages?limit=500 HTTP/1.1
+X-API-Key: 01K09HYG79R661JVJZVX05Q27Z
+
+###send message
+POST http://localhost:3030/john/messages/send HTTP/1.1
+Content-Type: application/json
+X-API-Key: 01K09HYG79R661JVJZVX05Q27Z
+
+{
+    "jid": "6287833372003@s.whatsapp.net",
+    "type": "number",
+    "message": {
+        "text": "azkal sss shsg shgs"
+    }
+}

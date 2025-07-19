@@ -1,0 +1,7 @@
+{
+    "exec": "ts-node --transpile-only src/main.ts",
+    "ext": "ts,tsx",
+    "ignore": [
+        "node_modules"
+    ]
+}
