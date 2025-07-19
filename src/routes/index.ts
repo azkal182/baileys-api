@@ -10,9 +10,9 @@ import { authenticateToken } from "@/middlewares/auth-middleware";
 const router = Router();
 router.use("/api/auth", auth);
 router.use("/api/sessions", authenticateToken, sessionRoutes);
-router.use("/:sessionId/chats", authenticateToken, chatRoutes);
-router.use("/:sessionId/contacts", authenticateToken, contactRoutes);
-router.use("/:sessionId/groups", authenticateToken, groupRoutes);
-router.use("/:sessionId/messages", authenticateToken, messageRoutes);
+router.use("/api/:sessionId/chats", authenticateToken, chatRoutes);
+router.use("/api/:sessionId/contacts", authenticateToken, contactRoutes);
+router.use("/api/:sessionId/groups", authenticateToken, groupRoutes);
+router.use("/api/:sessionId/messages", authenticateToken, messageRoutes);
 
 export default router;
